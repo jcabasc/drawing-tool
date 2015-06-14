@@ -1,0 +1,27 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    coderay (1.1.0)
+    colorize (0.7.7)
+    highline (1.6.21)
+    method_source (0.8.2)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    rake (10.4.2)
+    slop (3.6.0)
+    text-table (1.2.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  colorize
+  highline
+  pry
+  rake
+  text-table
+
+BUNDLED WITH
+   1.10.3
