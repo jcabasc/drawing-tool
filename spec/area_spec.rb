@@ -15,7 +15,7 @@ describe Area do
       let(:color) { 'o' }
       subject { described_class.new(10,3,color, matrix).fill.to_a }
       it  "with coordinates (10,3) and color 'o'" do
-        expect(subject).to eql response_1
+        expect(subject).to eql response_area_1
         puts subject.to_table
       end
     end
@@ -24,7 +24,7 @@ describe Area do
       let(:color) { 's' }
       subject { described_class.new(19,2,color, matrix).fill.to_a }
       it  "with coordinates (19,2) and color 's'" do
-        expect(subject).to eql response_2
+        expect(subject).to eql response_area_2
         puts subject.to_table
       end
     end
@@ -33,7 +33,7 @@ describe Area do
       let(:color) { 's' }
       subject { described_class.new(3,3,color, matrix).fill.to_a }
       it  "with coordinates (3,3) and color 's'" do
-        expect(subject).to eql response_3
+        expect(subject).to eql response_area_3
         puts subject.to_table
       end
     end
@@ -41,7 +41,7 @@ describe Area do
   end
 end
 
-def response_1
+def response_area_1
   [
     ["o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "x", "x", "x", "x", "x"],
     ["x", "x", "x", "x", "x", "x", "o", "o", "o", "o", "o", "o", "o", "o", "o", "x", "", "", "", "x"],
@@ -50,7 +50,7 @@ def response_1
   ]
 end
 
-def response_2
+def response_area_2
   [
     ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "x", "x", "x", "x", "x"],
     ["x", "x", "x", "x", "x", "x", "", "", "", "", "", "", "", "", "", "x", "s","s", "s", "x"],
@@ -59,7 +59,7 @@ def response_2
   ]
 end
 
-def response_3
+def response_area_3
   [
     ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "x", "x", "x", "x", "x"],
     ["x", "x", "x", "x", "x", "x", "", "", "", "", "", "", "", "", "", "x", "", "", "", "x"],

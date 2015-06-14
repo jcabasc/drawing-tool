@@ -8,13 +8,13 @@ describe Rectangle do
     subject { described_class.new(6,1,10,3, matrix).draw.to_a }
 
     it  "draw a rectangle with coordenates (6,1) - (10,3)" do
-      expect(subject).to eql response
+      expect(subject).to eql response_rectangle
       puts subject.to_table
     end
   end
 end
 
-def response
+def response_rectangle
   [
     ["", "", "", "", "", "x", "x", "x", "x", "x"],
     ["", "", "", "", "", "x", "", "", "", "x"],
