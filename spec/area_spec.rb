@@ -6,9 +6,9 @@ describe Area do
     let(:matrix) { canvas.matrix }
 
     before do
-      Rectangle.new(16,1,20,3, matrix).draw
-      Line.new(6,3,6,4, matrix).draw
-      Line.new(1,2,6,2, matrix).draw
+      Rectangle.call(16,1,20,3, matrix).draw
+      Line.call(6,3,6,4, matrix).draw
+      Line.call(1,2,6,2, matrix).draw
     end
 
     context "fill an area" do

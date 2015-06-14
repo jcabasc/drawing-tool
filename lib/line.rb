@@ -1,9 +1,10 @@
-require 'base'
+require_relative 'base'
 class Line < Base
 
-  def draw
-    matrix.each_with_index do |val, row, col|
-      matrix[row,col] = 'x' if (y1..y2).include?(row) && (x1..x2).include?(col)
-    end
+  def draw(x1 = @x1,y1 = @y1, x2 = @x2, y2 = @y2)
+    matrix[y1,x1] = 'x'
+    return matrix if x1 == x2 && y1 == y2
+    draw(x1,y1+1,x2,y2) if x2 == x1
+    draw(x1+1,y1,x2,y2) if y2 == y1
   end
 end
