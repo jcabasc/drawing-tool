@@ -33,7 +33,7 @@ namespace :drawingtool do
           say("Second Position:")
           x2 = ask("x2  ", Integer) { |q| q.in = 1..width }
           y2 = ask("y2  ", Integer) { |q| q.in = 1..height }
-          puts Line.new(x1,y1,x2,y2,matrix).draw.to_table
+          puts Line.call(x1,y1,x2,y2,matrix).draw.to_table
        end
 
         menu.choice("Draw a rectangle") do
@@ -44,7 +44,7 @@ namespace :drawingtool do
           say("Second Position:")
           x2 = ask("x2  ", Integer) { |q| q.in = 1..width }
           y2 = ask("y2  ", Integer) { |q| q.in = 1..height }
-          puts Rectangle.new(x1,y1,x2,y2,matrix).draw.to_table
+          puts Rectangle.call(x1,y1,x2,y2,matrix).draw.to_table
         end
 
         menu.choice("Fill an area") do
