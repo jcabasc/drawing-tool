@@ -12,10 +12,10 @@ Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file }
 def ask_questions(klass, width, height, matrix)
   klass = klass.to_s.camelcase.constantize
   say("Good choice!")
-  say("First Position:")
+  say("First coordinate:")
   x1 = ask("x1  ", Integer) { |q| q.in = 1..width }
   y1 = ask("y1  ", Integer) { |q| q.in = 1..height }
-  say("Second Position:")
+  say("Second coordinate:")
   x2 = ask("x2  ", Integer) { |q| q.in = 1..width }
   y2 = ask("y2  ", Integer) { |q| q.in = 1..height }
   puts klass.call(x1,y1,x2,y2,matrix).draw.to_table
@@ -57,7 +57,7 @@ namespace :drawingtool do
         end
       end
 
-      answer = ask("Keep drawing? (y/n)"){ |q| q.validate = /[y,n]/ }
+      answer = ask("Continue drawing? (y/n)"){ |q| q.validate = /[y,n]/ }
       quit = answer != "y"
     end
   end
