@@ -26,6 +26,15 @@ module MatrixFixtureSupport
     ]
   end
 
+  def response_diagonal_line
+    [
+      ["x", "", "", "", "", "", "", "", "", ""],
+      ["", "x", "", "", "", "", "", "", "", ""],
+      ["", "", "x", "", "", "", "", "", "", ""],
+      ["", "", "", "x", "", "", "", "", "", ""]
+    ]
+  end
+
   def response_rectangle
     [
       ["", "", "", "", "", "x", "x", "x", "x", "x"],

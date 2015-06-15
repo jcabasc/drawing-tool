@@ -28,5 +28,13 @@ describe Line do
       end
     end
 
+    context "when a diagonal line with coordinates p1(1,1) and p2(4,4) " do
+      subject { described_class.call(1,1,4,4, matrix).draw.to_a }
+      it  "draw a line from (1,1) to (4,4)" do
+        expect(subject).to eql response_diagonal_line
+        puts subject.to_table
+      end
+    end
+
   end
 end

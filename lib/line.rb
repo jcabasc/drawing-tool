@@ -9,6 +9,8 @@ class Line < Base
       draw(x1,y1+1,x2,y2)
     elsif y2 == y1
       draw(x1+1,y1,x2,y2)
+    elsif x2 > x1 && y2 > y1
+      draw(x1+1,y1+1,x2,y2)
     end
 
   end
