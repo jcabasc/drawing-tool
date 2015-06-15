@@ -12,8 +12,15 @@ class Base
 
   def self.to_h(x1,y1,x2,y2)
     params = { x1: x1, x2: x2, y1: y1, y2: y2 }
-    params.merge!(x1: x2, x2: x1, y1: y2, y2: y1) if x1 > x2 || y1 > y2
-    params
+    params.tap do |hsh|
+      if x1 > x2 && y1 > y2
+        hsh.merge!(x1: x2, x2: x1, y1: y2, y2: y1)
+      elsif x1 > x2
+        hsh.merge!(x1: x2, x2: x1)
+      elsif y1 > y2
+        hsh.merge!(y1: y2, y2: y1)
+      end
+    end
   end
 
 end
