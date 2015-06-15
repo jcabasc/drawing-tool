@@ -1,12 +1,25 @@
 require 'rubygems'
 require 'bundler/setup'
-require 'colorize'
 require 'highline/import'
 require 'erb'
 require 'pry'
 require 'matrix'
 require 'text-table'
+require 'active_support/inflector'
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file }
+
+
+def ask_questions(klass, width, height, matrix)
+  klass = klass.to_s.camelcase.constantize
+  say("Good choice!")
+  say("First Position:")
+  x1 = ask("x1  ", Integer) { |q| q.in = 1..width }
+  y1 = ask("y1  ", Integer) { |q| q.in = 1..height }
+  say("Second Position:")
+  x2 = ask("x2  ", Integer) { |q| q.in = 1..width }
+  y2 = ask("y2  ", Integer) { |q| q.in = 1..height }
+  puts klass.call(x1,y1,x2,y2,matrix).draw.to_table
+end
 
 namespace :drawingtool do
   task :start do
@@ -25,26 +38,13 @@ namespace :drawingtool do
     until quit
       choose do |menu|
         menu.prompt = "Now, what do you want to do?"
+
         menu.choice("Draw a line") do
-          say("Good choice!")
-          say("First Position:")
-          x1 = ask("x1  ", Integer) { |q| q.in = 1..width }
-          y1 = ask("y1  ", Integer) { |q| q.in = 1..height }
-          say("Second Position:")
-          x2 = ask("x2  ", Integer) { |q| q.in = 1..width }
-          y2 = ask("y2  ", Integer) { |q| q.in = 1..height }
-          puts Line.call(x1,y1,x2,y2,matrix).draw.to_table
+          ask_questions(:line, width, height, matrix)
        end
 
         menu.choice("Draw a rectangle") do
-          say("Good choice!")
-          say("First Position:")
-          x1 = ask("x1  ", Integer) { |q| q.in = 1..width }
-          y1 = ask("y1  ", Integer) { |q| q.in = 1..height }
-          say("Second Position:")
-          x2 = ask("x2  ", Integer) { |q| q.in = 1..width }
-          y2 = ask("y2  ", Integer) { |q| q.in = 1..height }
-          puts Rectangle.call(x1,y1,x2,y2,matrix).draw.to_table
+          ask_questions(:rectangle, width, height, matrix)
         end
 
         menu.choice("Fill an area") do
